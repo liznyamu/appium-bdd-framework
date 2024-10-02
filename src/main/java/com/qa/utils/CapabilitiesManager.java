@@ -24,8 +24,8 @@ public class CapabilitiesManager {
         switch (params.getPlatformName()) {
             case "Android":
                 String androidAppUrl = System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "resources" +
-                        File.separator + props.getProperty("androidAppLocation");
+                        "src" + File.separator + "test" + File.separator + "resources" + File.separator +
+                        "apps" +  File.separator + props.getProperty("androidAppLocation");
 
                 // For emulator only set avd and avdLaunchTimeout
                 UiAutomator2Options androidOptions = new UiAutomator2Options().
@@ -44,8 +44,8 @@ public class CapabilitiesManager {
                 break;
             case "iOS":
                 String iOSAppUrl = System.getProperty("user.dir") + File.separator +
-                        "src" + File.separator + "test" + File.separator + "resources" +
-                        File.separator + props.getProperty("iOSAppLocation");
+                        "src" + File.separator + "test" + File.separator + "resources" + File.separator +
+                        "apps" + File.separator + props.getProperty("iOSAppLocation");
 
                 XCUITestOptions iOSOptions = new XCUITestOptions()
                         .setUdid(params.getUdid())

@@ -21,7 +21,7 @@ public class ServerManager {
     }
 
     public void startServer(){
-        AppiumDriverLocalService server = getAppiumServerDefault();
+        AppiumDriverLocalService server = macGetAppiumServerDefault();
         server.start();
         if(!server.isRunning()){ //  if(server == null || !server.isRunning()){
             utils.log().fatal("Appium server not started. ABORT !!!");
@@ -37,8 +37,21 @@ public class ServerManager {
     }
 
     public AppiumDriverLocalService macGetAppiumServerDefault(){
+
         GlobalParams params = new GlobalParams();
         HashMap<String, String> environment = new HashMap<>();
+
+        String logPath = "logs" + File.separator + params.getPlatformName() + "_"
+                + params.getDeviceName() + File.separator ;
+
+        File logDir = new File(logPath);
+
+        synchronized(logDir){
+            if(!logDir.exists()) {
+                logDir.mkdirs();
+            }
+        }
+
         environment.put("PATH", "/Users/elizabethnyamu/Projects/tools/apache-maven-3.9.9/bin:/Users/elizabethnyamu/Library/Android/sdk/platform-tools:/Users/elizabethnyamu/Library/Android/sdk/cmdline-tools:/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/iTerm.app/Contents/Resources/utilities");
         environment.put("ANDROID_HOME", "/Users/elizabethnyamu/Library/Android/sdk");
         environment.put("JAVA_HOME", "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home");
@@ -48,9 +61,7 @@ public class ServerManager {
                 .usingAnyFreePort()
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
 //                .withEnvironment(environment)
-                .withLogFile(new File("serverlogs" + File.separator
-                        + params.getPlatformName() + "_" + params.getDeviceName() + File.separator
-                        + "server.log"))
+                .withLogFile(new File(logDir + File.separator + "Server.log"))
         );
     }
 }
