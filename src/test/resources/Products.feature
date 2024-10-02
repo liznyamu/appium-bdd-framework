@@ -1,5 +1,6 @@
 Feature: Products scenarios
 
+  @test
   Scenario Outline: Validate product info on Products page
     Given I'm logged in
     Then the product is listed with title "<title>" and price "<price>"
@@ -11,6 +12,7 @@ Feature: Products scenarios
 #      | Test.allThings() Tshirt (Red) | $15.99 |
 
 
+  @test
   Scenario Outline: Validate product info on Products Details page
     Given I'm logged in
     When I click product title "<title>"
