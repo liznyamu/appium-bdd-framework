@@ -1,41 +1,29 @@
-# Appium - TDD Framework Design
+# Appium - Cucumber BDD Framework Design
 
-## Framework plan
-- [x] Avoid code duplication
-- [x] Improve code readability
-- [x] Scalable automation
-- [x] Wait and Driver commands handling
-- [x] Use Explicit Waits
-- [x] Modular, independent test cases
-- [x] Parameterization
-- [x] Exception Handling
-- [x] Add abstraction layer for test data
-- [x] Add abstraction layer for static text
-- [x] Multiple platform support - iOS and Android
-- [x] Add More Test Classes / Defining common elements
-- [x] Failure recovery / Fail safe test cases
-  - using @BeforeMethod and @AfterMethod
-- [x] Scrolling - Different Scrolling Mechanisms
-- [x] Capture Screenshots/Videos
-- [x] Parallel Execution on Android and iOS
-  - *Why ?* 
-    - to increase test coverage by executing the application on multiple devices
-    - to reduce the test execution time even when we execute the automation on multiple devices
-- [x] Logging framework
-- [x] Programmatically start the Appium Server
-- [x] Reporting framework - Extent Reports
+## Cucumber Framework plan
+- [ ] Designed using Page Object Model - for re-usability
+- [ ] Behavioral driven
+- [ ] Supports CI/CD integration
+- [ ] Supports parallel execution using both JUnit and TestNG
+- [ ] Screenshot capture on scenario failure
+- [ ] Video recording for each scenario
+- [ ] Supports both Android and iOS
+- [ ] Supports parallel logging using Log4J2
+- [ ] Starts Appium server programmatically
+- [ ] Supports Cucumber-HTML- Reporter plugin for detailed reporting
+- [ ] Supports command line execution using Maven (Both JUnit and TestNG)
 - [ ] Integrating with Git
 - [ ] Integrating with Jenkins
 
 
 ## Tools/Technologies
-- IntelliJ
-- Appium
-- Maven
-- Java
-- TestNG
-- Log4J
-- Extent Reports
-- JSON
-- GitHub
-- Jenkins
+- *Cucumber:*  BDD framework and Reporting
+- *Gherkin:* Business Readable, Domain Specific Language
+  - define the actions users are going to perform
+- *Appium:* Mobile automation library
+- *Java:* Programming language
+- *Maven:* Build automation tool
+- *Log4j2:* Logging framework
+- *JUnit:* Unit test management tool
+- *TestNG:* Functional test management tool
+- *IntelliJ:* IDE

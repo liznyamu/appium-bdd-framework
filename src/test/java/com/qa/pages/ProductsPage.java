@@ -1,7 +1,5 @@
 package com.qa.pages;
 
-import com.qa.BaseTest;
-import com.qa.utils.TestUtils;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -23,7 +21,7 @@ public class ProductsPage extends MenuPage {
     WebElement SLBPrice;
 
     public ProductsPage() {
-        PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public String getTitle() {

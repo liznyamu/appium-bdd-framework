@@ -1,20 +1,18 @@
 package com.qa.pages;
 
-import com.qa.BaseTest;
-import com.qa.utils.TestUtils;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class SettingsPage extends BaseTest {
+public class SettingsPage extends BasePage {
     @AndroidFindBy(accessibility = "test-LOGOUT")
     @iOSXCUITFindBy(id = "test-LOGOUT")
     private WebElement logoutBtn;
 
     public SettingsPage(){
-        PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public LoginPage pressLogoutBtn(){

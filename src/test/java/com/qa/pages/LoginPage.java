@@ -1,6 +1,5 @@
 package com.qa.pages;
 
-import com.qa.BaseTest;
 import com.qa.utils.TestUtils;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -9,7 +8,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BaseTest {
+public class LoginPage extends BasePage {
     @AndroidFindBy(accessibility = "test-Username")
     @iOSXCUITFindBy(id = "test-Username")
     WebElement usernameTxtFld;
@@ -23,10 +22,9 @@ public class LoginPage extends BaseTest {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@name=\"test-Error message\"]/child::XCUIElementTypeStaticText")
     WebElement errTxt;
 
-    TestUtils utils = new TestUtils();
 
     public LoginPage() {
-        PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public LoginPage enterUserName(String username) {

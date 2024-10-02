@@ -1,5 +1,6 @@
 package com.qa.pages;
 
+import com.qa.utils.GlobalParams;
 import com.qa.utils.TestUtils;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -26,8 +27,10 @@ public class ProductDetailsPage extends MenuPage {
     @iOSXCUITFindBy(id = "test-ADD TO CART") WebElement addToCartBtn;
     @iOSXCUITFindBy(id = "test-Price") WebElement SLBPrice;
 
+    GlobalParams params = new GlobalParams();
+
     public ProductDetailsPage() {
-        PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public String getSLBTitle() {
@@ -39,7 +42,7 @@ public class ProductDetailsPage extends MenuPage {
     }
 
     public String scrollToSLBPriceAndGetSLBPrice(){
-        return switch (getPlatform()) {
+        return switch (params.getPlatformName()) {
             case "Android" -> getText(androidScrollToElement());
             case "iOS" -> {
                 // TODO - this scroll is for tutorial purposes -- it's not need as the SLB price is visible on iOS
